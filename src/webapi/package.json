@@ -1,0 +1,26 @@
+{
+    "name": "webapi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Yauheni Yatskou",
+    "license": "AGPLv3",
+    "dependencies": {
+        "express": "^4.17.1",
+        "lowdb": "^3.0.0",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.8",
+        "@babel/eslint-parser": "^7.15.8",
+        "eslint": "^7.32.0",
+        "eslint-plugin-import": "^2.24.2"
+    },
+    "browserslist": [
+        "last 2 Firefox versions"
+    ]
+}

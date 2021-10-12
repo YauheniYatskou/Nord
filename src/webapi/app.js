@@ -1,5 +1,5 @@
 import express from 'express';
-import { getDatabase } from './dataAccess/database';
+import { getDatabase } from './dataAccess/database.js';
 import process from 'process';
 
 const app = express();
@@ -21,6 +21,10 @@ app.get('/goals', (request, response) => {
 
 app.get('/files', (request, response) => {
     response.send(database.data.files);
+});
+
+app.get('/lists', (request, response) => {
+    response.send(database.data.lists);
 });
 
 app.listen(port, () => {

@@ -1,10 +1,11 @@
 import { JSONFile, Low } from 'lowdb';
 
 export class Data {
-    constructor(goals = [], files = [], entities = []) {
+    constructor(goals = [], files = [], entities = [], lists = []) {
         this.goals = goals;
         this.files = files;
         this.entities = entities;
+        this.lists = lists;
     }
 }
 

@@ -1,4 +1,4 @@
-import { generateUuid } from '../utils/generateUuid';
+import { generateUuid } from '../utils/generate-uuid';
 
 export class Entity {
     constructor(name = '', type = '', metadata = [], files = [], entities = []) {
@@ -13,11 +13,11 @@ export class Entity {
 
     validateRequiredFields(name, type) {
         if (!name) {
-            throw Error('Name is required');
+            throw new Error('Name is required');
         }
 
         if (!type) {
-            throw Error('Type is required');
+            throw new Error('Type is required');
         }
     }
 }

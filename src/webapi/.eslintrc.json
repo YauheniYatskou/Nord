@@ -34,19 +34,17 @@
             "always"
         ],
         "no-duplicate-imports": ["error"],
-        "no-trailing-spaces": ["error"],
-        "sort-imports": ["error"]
+        "no-trailing-spaces": ["error"]
     },
     "settings": {
-        "settings": {
-            "import/resolver": {
-                "node": {
-                    "extensions": [".js"]
-                }
+        "import/resolver": {
+            "node": {
+                "extensions": [".js"]
             }
         },
         "import/parsers": {
             "@babel/eslint-parser": [".js"]
-        }
+        },
+        "import/core-modules": ["node"]
     }
 }

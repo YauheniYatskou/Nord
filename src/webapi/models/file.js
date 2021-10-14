@@ -1,4 +1,4 @@
-import { generateUuid } from '../utils/generateUuid';
+import { generateUuid } from '../utils/generate-uuid';
 
 export class File {
     constructor(name, extension, data, metadata = [], files = [], entities = []) {
@@ -14,11 +14,11 @@ export class File {
 
     validateRequiredFields(name, extension, data) {
         if (!name && !extension) {
-            throw Error('Name or extenion is required');
+            throw new Error('Name or extenion is required');
         }
 
         if (!data || !data.byteLength) {
-            throw Error('Data is required');
+            throw new Error('Data is required');
         }
     }
 }

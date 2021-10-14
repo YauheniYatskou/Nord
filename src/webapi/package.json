@@ -2,8 +2,11 @@
     "name": "webapi",
     "version": "1.0.0",
     "description": "",
-    "main": "app.js",
+    "exports": "./app.js",
     "type": "module",
+    "engines": {
+        "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+    },
     "scripts": {
         "start": "node app.js"
     },

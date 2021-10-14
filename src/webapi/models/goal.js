@@ -7,11 +7,11 @@ export class Goal {
 
     validateRequiredFields(result, action) {
         if (!result) {
-            throw Error('Result is required');
+            throw new Error('Result is required');
         }
 
         if (!action) {
-            throw Error('Action is required');
+            throw new Error('Action is required');
         }
     }
 }

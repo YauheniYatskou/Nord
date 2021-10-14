@@ -1,6 +1,9 @@
-export class Metadata {
+import { Identifiable } from '../abstractions/identifiable';
+
+export class Metadata extends Identifiable {
     constructor(field, type, value) {
-        this.validateRequiredFields;
+        super();
+        this.validateRequiredFields();
         this.field = field;
         this.type = type;
         this.value = value;

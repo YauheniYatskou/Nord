@@ -1,9 +1,9 @@
-import { generateUuid } from '../utils/generate-uuid';
+import { Identifiable } from '../abstractions/identifiable';
 
-export class File {
+export class File extends Identifiable {
     constructor(name, extension, data, metadata = [], files = [], entities = []) {
+        super();
         this.validateRequiredFields(name, extension, data);
-        this.id = generateUuid();
         this.name = name.trim();
         this.extension = extension.trim();
         this.data = data;

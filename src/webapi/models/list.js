@@ -1,20 +1,22 @@
-import { generateUuid } from '../utils/generate-uuid';
+import { Identifiable } from '../abstractions/identifiable';
 
-export class Cell {
+export class Cell extends Identifiable {
     constructor(value) {
+        super();
         this.value = value;
     }
 }
 
-export class Row {
+export class Row extends Identifiable {
     constructor(cells = []) {
+        super();
         this.cells = cells;
     }
 }
 
-export class List {
+export class List extends Identifiable {
     constructor(rows = []) {
-        this.id = generateUuid();
+        super();
         this.rows = rows;
     }
 }

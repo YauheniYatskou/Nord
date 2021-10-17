@@ -10,7 +10,7 @@ export class Data {
 }
 
 export const getDatabase = async () => {
-    const fileName =  'meta.json';
+    const fileName = 'meta.json';
     const adapter = new JSONFile(fileName);
     const database = new Low(adapter);
     await database.read();

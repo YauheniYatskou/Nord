@@ -1,7 +1,14 @@
 import { Identifiable } from '../abstractions/identifiable';
 
 export class File extends Identifiable {
-    constructor(name, extension, data, metadata = [], files = [], entities = []) {
+    constructor(
+        name,
+        extension,
+        data,
+        metadata = [],
+        files = [],
+        entities = []
+    ) {
         super();
         this.validateRequiredFields(name, extension, data);
         this.name = name.trim();

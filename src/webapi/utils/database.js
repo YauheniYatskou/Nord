@@ -10,18 +10,15 @@ export class Data {
     }
 }
 
-let database;
+const fileName = 'meta.json';
+const adapter = new JSONFile(fileName);
+const database = new Low(adapter);
+await database.read();
 
-export const getDatabase = async () => {
-    if (!database) {
-        const fileName = 'meta.json';
-        const adapter = new JSONFile(fileName);
-        database = new Low(adapter);
-        await database.read();
-        if (!database.data) {
-            database.data = new Data();
-            await database.write();
-        }
+export const getDatabaseInstance = async () => {
+    if (!database.data) {
+        database.data = new Data();
+        await database.write();
     }
 
     return database;

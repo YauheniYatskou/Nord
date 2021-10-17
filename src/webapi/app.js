@@ -1,43 +1,20 @@
-import express from 'express';
-import { getDatabase } from './dataAccess/database.js';
-import process from 'process';
+import { getDatabaseInstance } from './utils/database.js';
 import { log } from './utils/log.js';
-import { EntityService } from './services/entity-service.js';
+import { addEntityRoutes } from './routes/entity-routes.js';
+import { getExpressInstance } from './utils/express.js';
+import { getConfigValue } from './utils/configuration.js';
+import { configFieldNames } from './utils/constants.js';
 
-const app = express();
-const port = 3000;
-const message = `webapi version '${process.env.npm_package_version}' successfully running`;
-const database = await getDatabase();
-
-app.use(express.json());
+const app = getExpressInstance();
+const version = getConfigValue(configFieldNames.version);
+const message = `webapi version '${version}' successfully running`;
+const database = await getDatabaseInstance();
 
 app.get('/', (request, response) => {
     response.send(message);
 });
 
-app.get('/entity', async (request, response, next) => {
-    try {
-        const service = new EntityService();
-        const entities = await service.getEntities();
-        response.send(entities);
-    } catch (error) {
-        next(error);
-    }
-});
-
-app.post('/entity', async (request, response, next) => {
-    try {
-        const service = new EntityService();
-        const entity = await service.createEntity(
-            request.body.name,
-            request.body.type,
-            request.body.metadata
-        );
-        response.send(entity);
-    } catch (error) {
-        next(error);
-    }
-});
+addEntityRoutes(app);
 
 app.get('/goal', (request, response, next) => {
     try {
@@ -63,6 +40,7 @@ app.get('/list', (request, response, next) => {
     }
 });
 
+const port = getConfigValue(configFieldNames.port);
 app.listen(port, () => {
     log(message);
 });

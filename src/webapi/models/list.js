@@ -1,4 +1,4 @@
-import { Identifiable } from '../abstractions/identifiable';
+import { Identifiable } from '../abstractions/identifiable.js';
 
 export class Cell extends Identifiable {
     constructor(value) {

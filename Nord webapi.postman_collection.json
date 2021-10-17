@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "53b6d490-d7ed-4e2b-acbf-0fc4008ba4c6",
+		"name": "Nord webapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get entities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/entity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"entity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get goals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/goal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"goal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create entity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"misc\",\r\n    \"type\": \"note\",\r\n    \"metadata\": [\r\n        {\r\n            \"field\": \"tags\",\r\n            \"type\": \"text\",\r\n            \"value\": [\"some\", \"stuff\"]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/entity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"entity"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

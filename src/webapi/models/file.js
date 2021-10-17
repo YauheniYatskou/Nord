@@ -1,22 +1,13 @@
-import { Identifiable } from '../abstractions/identifiable';
+import { Identifiable } from '../abstractions/identifiable.js';
 
 export class File extends Identifiable {
-    constructor(
-        name,
-        extension,
-        data,
-        metadata = [],
-        files = [],
-        entities = []
-    ) {
+    constructor(name, extension, data, metadata = []) {
         super();
         this.validateRequiredFields(name, extension, data);
         this.name = name.trim();
         this.extension = extension.trim();
         this.data = data;
         this.metadata = metadata;
-        this.files = files;
-        this.entities = entities;
     }
 
     validateRequiredFields(name, extension, data) {

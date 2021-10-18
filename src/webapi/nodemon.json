@@ -1,0 +1,23 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        ".git",
+        "*ignore*",
+        "node_modules/**/node_modules",
+        ".prettierrc",
+        ".eslintrc.json",
+        ".vscode/"
+    ],
+    "verbose": true,
+    "execMap": {
+        "js": "node --harmony"
+    },
+    "watch": [
+        "src",
+        ".env"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "js,json"
+}

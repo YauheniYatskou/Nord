@@ -1,5 +1,5 @@
-import { Identifiable } from '../abstractions/identifiable.js';
-import { Metadata } from './metadata.js';
+import { Identifiable } from '../common/identifiable.js';
+import { Metadata } from '../models/metadata.js';
 
 export class Entity extends Identifiable {
     constructor(name, type, metadata = []) {

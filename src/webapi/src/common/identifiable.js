@@ -1,4 +1,4 @@
-import { generateUuid } from '../utils/generate-uuid.js';
+import { generateUuid } from './generate-uuid.js';
 
 export class Identifiable {
     constructor() {

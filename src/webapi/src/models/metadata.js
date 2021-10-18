@@ -1,4 +1,4 @@
-import { Identifiable } from '../abstractions/identifiable.js';
+import { Identifiable } from '../common/identifiable.js';
 
 export class Metadata extends Identifiable {
     constructor(field, type, value) {

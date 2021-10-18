@@ -25,4 +25,14 @@ export const addEntityRoutes = (app = getExpressInstance()) => {
             next(error);
         }
     });
+
+    app.delete('/entity/:entityId', async (request, response, next) => {
+        try {
+            const service = new EntityService();
+            await service.deleteEntity(request.params.entityId);
+            response.send();
+        } catch (error) {
+            next(error);
+        }
+    });
 };

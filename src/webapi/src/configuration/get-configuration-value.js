@@ -3,4 +3,4 @@ import process from 'process';
 
 config();
 
-export const getConfigValue = (field) => process.env[field];
+export const getConfigurationValue = (field) => process.env[field];

@@ -1,13 +1,17 @@
 import { getDatabaseInstance } from './utils/database.js';
-import { log } from './utils/log.js';
 import { addEntityRoutes } from './routes/entity-routes.js';
 import { getExpressInstance } from './utils/express.js';
-import { getConfigValue } from './utils/configuration.js';
-import { configFieldNames } from './utils/constants.js';
+import { getConfigurationValue } from './configuration/get-configuration-value.js';
+import { configurationFieldNames } from './configuration/configuration-field-names.js';
+import morgan from 'morgan';
+import { logger } from './logging/logger.js';
+
 
 const app = getExpressInstance();
-const version = getConfigValue(configFieldNames.version);
-const message = `webapi version '${version}' successfully running`;
+const version = getConfigurationValue(configurationFieldNames.version);
+const environment = getConfigurationValue(configurationFieldNames.environment);
+const message = `Nord webapi of version '${version}' running in '${environment}' environment.`;
+app.use(morgan('combined', { stream: logger.stream }));
 const database = await getDatabaseInstance();
 
 app.get('/', (request, response) => {
@@ -40,7 +44,7 @@ app.get('/list', (request, response, next) => {
     }
 });
 
-const port = getConfigValue(configFieldNames.port);
+const port = getConfigurationValue(configurationFieldNames.port);
 app.listen(port, () => {
-    log(message);
+    logger.info(message);
 });

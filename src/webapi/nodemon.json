@@ -8,7 +8,7 @@
         ".eslintrc.json",
         ".vscode/"
     ],
-    "verbose": true,
+    "verbose": false,
     "execMap": {
         "js": "node --harmony"
     },
@@ -16,8 +16,5 @@
         "src",
         ".env"
     ],
-    "env": {
-        "NODE_ENV": "development"
-    },
     "ext": "js,json"
 }

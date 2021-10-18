@@ -108,6 +108,45 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Delete entity",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/entity/db2beca0-bf77-4e89-98f2-a3e122ac72ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"entity",
+						"db2beca0-bf77-4e89-98f2-a3e122ac72ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Path not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/somepath",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"somepath"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

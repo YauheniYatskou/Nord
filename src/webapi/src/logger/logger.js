@@ -11,32 +11,34 @@ let options = {
         maxsize: 5242880,
         maxFiles: 5,
         colorize: false,
-        prettyPrint: false
+        prettyPrint: false,
     },
     console: {
         level: 'debug',
         colorize: true,
-        prettyPrint: true
-    }
+        prettyPrint: true,
+    },
 };
 
 let logger = new createLogger({
     transports: [
         new transports.File(options.file),
-        new transports.Console(options.console)
+        new transports.Console(options.console),
     ],
     exitOnError: false,
     handleExceptions: true,
-    format: format.json()
+    format: format.json(),
 });
 
 logger.stream = {
-    write: function(message) {
+    write: function (message) {
         logger.info(message);
-    }
+    },
 };
 
-if (getConfigurationValue(configurationFieldNames.environment) !== 'production') {
+if (
+    getConfigurationValue(configurationFieldNames.environment) !== 'production'
+) {
     logger.transports.push(new transports.Console(options.console));
 }
 

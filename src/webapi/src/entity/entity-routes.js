@@ -15,7 +15,7 @@ export const addEntityRoutes = (app = getExpressInstance()) => {
     app.post('/entity', async (request, response, next) => {
         try {
             const service = new EntityService();
-            const {name, type, metadata} = request.body;
+            const { name, type, metadata } = request.body;
             const entity = await service.createEntity(name, type, metadata);
             response.send(entity);
         } catch (error) {
@@ -36,9 +36,12 @@ export const addEntityRoutes = (app = getExpressInstance()) => {
     app.patch('/entity/:entityId', async (request, response, next) => {
         try {
             const service = new EntityService();
-            const {name, type, metadata} = request.body;
-            const fieldValues = {name: name, type: type, metadata: metadata};
-            const patchedEntity = await service.patchEntity(request.params.entityId, fieldValues);
+            const { name, type, metadata } = request.body;
+            const fieldValues = { name: name, type: type, metadata: metadata };
+            const patchedEntity = await service.patchEntity(
+                request.params.entityId,
+                fieldValues
+            );
             response.send(patchedEntity);
         } catch (error) {
             next(error);

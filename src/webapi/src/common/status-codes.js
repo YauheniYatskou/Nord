@@ -1,4 +1,4 @@
 export const StatusCodes = {
     notFound: 404,
-    internalServerError: 500
+    internalServerError: 500,
 };

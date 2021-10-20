@@ -8,7 +8,6 @@ import { logger } from './logger/logger.js';
 import { StatusCodes, Environments } from './common/index.js';
 import express from 'express';
 
-
 const app = getExpressInstance();
 const version = getConfigurationValue(configurationFieldNames.version);
 const environment = getConfigurationValue(configurationFieldNames.environment);
@@ -60,12 +59,15 @@ app.use((error, request, response, next) => {
     error.statusCode = error.statusCode || StatusCodes.internalServerError;
     error.status = error.status || 'error';
 
-    const result  = {
+    const result = {
         status: error.status,
-        message: error.message
+        message: error.message,
     };
 
-    if (getConfigurationValue(configurationFieldNames.environment) !== Environments.production) {
+    if (
+        getConfigurationValue(configurationFieldNames.environment) !==
+        Environments.production
+    ) {
         result.stack = error.stack;
     }
 

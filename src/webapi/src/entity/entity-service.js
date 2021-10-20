@@ -21,17 +21,27 @@ export class EntityService {
 
     async deleteEntity(entityId) {
         const database = await getDatabaseInstance();
-        if (database.data.entities.findIndex(entity => entity.id === entityId) < 0) {
+        if (
+            database.data.entities.findIndex(
+                (entity) => entity.id === entityId
+            ) < 0
+        ) {
             throw notFoundError('entity', entityId);
         }
-        database.data.entities = _.remove(database.data.entities, entity => entity.id === entityId);
+        database.data.entities = _.remove(
+            database.data.entities,
+            (entity) => entity.id === entityId
+        );
         saveChanges();
     }
 
     async patchEntity(entityId, fieldValues) {
         const database = await getDatabaseInstance();
-        let entity = database.data.entities.find(entity => entity.id === entityId);
-        const fields = _.remove(['name', 'type', 'metadata'], field => fieldValues[field] !== undefined);
+        let entity = database.data.entities.find((e) => e.id === entityId);
+        const fields = _.remove(
+            ['name', 'type', 'metadata'],
+            (field) => fieldValues[field] !== undefined
+        );
         entity = patch(entity, fieldValues, fields);
         saveChanges();
 

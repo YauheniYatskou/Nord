@@ -1,7 +1,8 @@
 import { getDatabaseInstance, saveChanges } from '../utils/database.js';
-import { Entity } from '../entity/entity.js';
+import { Entity } from './entity.js';
 import _ from 'lodash';
-import { notFoundError } from '../errors/not-found-error.js';
+import { notFoundError } from '../errors/index.js';
+import { patch } from '../common/patch.js';
 
 export class EntityService {
     async getEntities() {
@@ -14,6 +15,7 @@ export class EntityService {
         const entity = new Entity(name, type, metadata);
         database.data.entities.push(entity);
         saveChanges();
+
         return entity;
     }
 
@@ -24,5 +26,15 @@ export class EntityService {
         }
         database.data.entities = _.remove(database.data.entities, entity => entity.id === entityId);
         saveChanges();
+    }
+
+    async patchEntity(entityId, fieldValues) {
+        const database = await getDatabaseInstance();
+        let entity = database.data.entities.find(entity => entity.id === entityId);
+        const fields = _.remove(['name', 'type', 'metadata'], field => fieldValues[field] !== undefined);
+        entity = patch(entity, fieldValues, fields);
+        saveChanges();
+
+        return entity;
     }
 }

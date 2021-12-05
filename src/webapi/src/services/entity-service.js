@@ -1,6 +1,6 @@
 import { Entity } from '../models/entity.js';
 import _ from 'lodash';
-import { patch } from '../core/functions/patch';
+import { patch } from '../core/functions/patch.js';
 
 export class EntityService {
     data = [];

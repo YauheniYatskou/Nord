@@ -1,5 +1,5 @@
 import { Metadata } from './metadata.js';
-import { generateUuid } from '../core/functions/generate-uuid';
+import { generateUuid } from '../core/functions/generate-uuid.js';
 
 export class Entity {
     constructor(id, name, type, metadata = []) {

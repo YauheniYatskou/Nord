@@ -1,6 +1,5 @@
-import { getDatabaseInstance } from './utils/database.js';
-import { addEntityRoutes } from './entity/index.js';
-import { getExpressInstance } from './utils/express.js';
+import { addEntityRoutes } from './routes/index.js';
+import { getExpressInstance } from './core/configuration/express.js';
 import { getConfigurationValue } from './core/configuration/get-configuration-value.js';
 import { configurationFieldNames } from './core/configuration/configuration-field-names.js';
 import morgan from 'morgan';
@@ -20,32 +19,6 @@ app.get('/', (request, response) => {
 });
 
 addEntityRoutes(app);
-
-const database = await getDatabaseInstance();
-
-app.get('/goal', (request, response, next) => {
-    try {
-        response.send(database.data.goals);
-    } catch (error) {
-        next(error);
-    }
-});
-
-app.get('/file', (request, response, next) => {
-    try {
-        response.send(database.data.files);
-    } catch (error) {
-        next(error);
-    }
-});
-
-app.get('/list', (request, response, next) => {
-    try {
-        response.send(database.data.lists);
-    } catch (error) {
-        next(error);
-    }
-});
 
 app.all('*', (req, res, next) => {
     const error = new Error(`Can't find ${req.originalUrl} on this server!`);

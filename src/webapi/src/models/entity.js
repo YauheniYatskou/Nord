@@ -1,12 +1,12 @@
-import { Identifiable } from '../common/identifiable.js';
-import { Metadata } from '../models/metadata.js';
+import { Metadata } from './metadata.js';
+import { generateUuid } from '../core/functions/generate-uuid';
 
-export class Entity extends Identifiable {
-    constructor(name, type, metadata = []) {
-        super();
+export class Entity {
+    constructor(id, name, type, metadata = []) {
+        this.id = id || generateUuid();
         this.validateRequiredFields(name, type, metadata);
-        this.name = name.trim();
-        this.type = type.trim();
+        this.name = name;
+        this.type = type;
         this.metadata = metadata.map(
             (item) => new Metadata(item.field, item.type, item.value)
         );

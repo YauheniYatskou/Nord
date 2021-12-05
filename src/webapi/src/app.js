@@ -1,11 +1,11 @@
 import { getDatabaseInstance } from './utils/database.js';
 import { addEntityRoutes } from './entity/index.js';
 import { getExpressInstance } from './utils/express.js';
-import { getConfigurationValue } from './configuration/get-configuration-value.js';
-import { configurationFieldNames } from './configuration/configuration-field-names.js';
+import { getConfigurationValue } from './core/configuration/get-configuration-value.js';
+import { configurationFieldNames } from './core/configuration/configuration-field-names.js';
 import morgan from 'morgan';
-import { logger } from './logger/logger.js';
-import { StatusCodes, Environments } from './common/index.js';
+import { logger } from './core/logging/logger.js';
+import { StatusCodes, Environments } from './core/index.js';
 import express from 'express';
 
 const app = getExpressInstance();
@@ -54,6 +54,8 @@ app.all('*', (req, res, next) => {
     next(error);
 });
 
+// 'next' argument is required for error handler to be treated as error handler and thus to work properly
+// eslint-disable-next-line no-unused-vars
 app.use((error, request, response, next) => {
     logger.error(error);
     error.statusCode = error.statusCode || StatusCodes.internalServerError;

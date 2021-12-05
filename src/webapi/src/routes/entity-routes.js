@@ -1,7 +1,6 @@
-import { EntityService } from './entity-service.js';
-import { getExpressInstance } from '../utils/express.js';
+import { EntityService } from '../services/entity-service.js';
 
-export const addEntityRoutes = (app = getExpressInstance()) => {
+export const addEntityRoutes = (app) => {
     app.get('/entity', async (request, response, next) => {
         try {
             const service = new EntityService();

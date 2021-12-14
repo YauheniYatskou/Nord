@@ -1,8 +1,10 @@
 FROM node:latest
 WORKDIR /usr/src/app
-COPY package-lock.json ./
+COPY package*.json ./
 RUN npm ci
 COPY . .
-EXPOSE 3000
-EXPOSE 9229
-CMD [ "npm", "start" ]
+EXPOSE 4000
+ENV PORT 4000
+ENV NODE_ENV production
+ENV VERSION 1.0
+CMD [ "node", "./src/app.js" ]

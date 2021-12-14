@@ -1,0 +1,10 @@
+.vscode/
+logs/
+node_modules/
+.eslintrc.json
+.gitignore
+.prettierignore
+.prettierrc
+entity-api.postman_collection.json
+nodemon.json
+Readme.md

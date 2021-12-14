@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "53b6d490-d7ed-4e2b-acbf-0fc4008ba4c6",
-		"name": "Nord webapi",
+		"name": "entity-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -19,63 +19,6 @@
 					"port": "3000",
 					"path": [
 						"entity"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get files",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/file",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"file"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get goals",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/goal",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"goal"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get lists",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"list"
 					]
 				}
 			},
@@ -143,6 +86,35 @@
 					"port": "3000",
 					"path": [
 						"somepath"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch entity",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"patched name\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/entity/cf4911c1-7019-4b1e-970f-83909108cf1e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"entity",
+						"cf4911c1-7019-4b1e-970f-83909108cf1e"
 					]
 				}
 			},

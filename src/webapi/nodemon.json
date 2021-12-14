@@ -13,8 +13,7 @@
         "js": "node --harmony"
     },
     "watch": [
-        "src",
-        ".env"
+        "src"
     ],
     "ext": "js,json"
 }

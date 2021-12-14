@@ -2,7 +2,9 @@ import winston from 'winston';
 import { getConfigurationValue } from '../configuration/get-configuration-value.js';
 import { configurationFieldNames } from '../configuration/configuration-field-names.js';
 
-const { createLogger, transports, format } = winston;
+const { createLogger, transports } = winston;
+const { json, combine, timestamp, errors, prettyPrint } = winston.format;
+
 
 let options = {
     file: {
@@ -11,12 +13,18 @@ let options = {
         maxsize: 5242880,
         maxFiles: 5,
         colorize: false,
-        prettyPrint: false,
+        prettyPrint: true,
+        errors: {
+            stack: true
+        }
     },
     console: {
         level: 'debug',
-        colorize: true,
+        colorize: false,
         prettyPrint: true,
+        errors: {
+            stack: true
+        }
     },
 };
 
@@ -27,7 +35,12 @@ let logger = new createLogger({
     ],
     exitOnError: false,
     handleExceptions: true,
-    format: format.json(),
+    format: combine(
+        errors({ stack: true }),
+        timestamp(),
+        prettyPrint(),
+        json()
+    ),
 });
 
 logger.stream = {

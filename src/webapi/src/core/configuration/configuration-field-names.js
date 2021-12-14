@@ -1,5 +1,5 @@
 export const configurationFieldNames = {
-    version: 'npm_package_version',
+    version: 'VERSION',
     port: 'PORT',
     environment: 'NODE_ENV',
 };

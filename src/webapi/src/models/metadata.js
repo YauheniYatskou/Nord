@@ -1,5 +1,5 @@
 export class Metadata {
-    constructor(field, type, value) {
+    constructor({ field, type, value }) {
         this.validateRequiredFields(field, type, value);
         this.field = field;
         this.type = type;

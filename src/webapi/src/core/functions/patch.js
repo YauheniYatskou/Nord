@@ -7,6 +7,5 @@ export const patch = (item, fieldValues, fields) => {
             item[field] = fieldValues[field];
         }
     });
-
     return item;
 };

@@ -1,7 +1,7 @@
-FROM node:latest
-WORKDIR /usr/src/app
+FROM node:fermium-alpine
+WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --silent --no-optional --only=production
 COPY . .
 EXPOSE 4000
 ENV PORT 4000

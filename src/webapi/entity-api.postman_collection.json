@@ -26,6 +26,20 @@
 		},
 		{
 			"name": "Create entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set entityId environment variable\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"entityId\", jsonData.id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -106,7 +120,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/entity/cf4911c1-7019-4b1e-970f-83909108cf1e",
+					"raw": "http://localhost:3000/entity/{{entityId}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -114,7 +128,7 @@
 					"port": "3000",
 					"path": [
 						"entity",
-						"cf4911c1-7019-4b1e-970f-83909108cf1e"
+						"{{entityId}}"
 					]
 				}
 			},

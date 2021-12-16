@@ -50,9 +50,7 @@ expressInstance.use((error, request, response, next) => {
         result.stack = error.stack;
     }
 
-    response
-        .status(error.statusCode)
-        .json(result);
+    response.status(error.statusCode).json(result);
 });
 
 const port = getConfigurationValue(configurationFieldNames.port);

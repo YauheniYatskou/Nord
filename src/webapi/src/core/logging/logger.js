@@ -5,7 +5,6 @@ import { configurationFieldNames } from '../configuration/configuration-field-na
 const { createLogger, transports } = winston;
 const { json, combine, timestamp, errors, prettyPrint } = winston.format;
 
-
 let options = {
     file: {
         level: 'info',
@@ -15,16 +14,16 @@ let options = {
         colorize: false,
         prettyPrint: true,
         errors: {
-            stack: true
-        }
+            stack: true,
+        },
     },
     console: {
         level: 'debug',
         colorize: false,
         prettyPrint: true,
         errors: {
-            stack: true
-        }
+            stack: true,
+        },
     },
 };
 

@@ -35,11 +35,10 @@ export const addEntityRoutes = (app) => {
     app.patch('/entity/:entityId', async (request, response, next) => {
         try {
             const service = new EntityService();
-            const { name, type, metadata } = request.body;
-            const fieldValues = { name: name, type: type, metadata: metadata };
+            const { field, type, value } = request.body;
             const patchedEntity = await service.patchEntity(
                 request.params.entityId,
-                fieldValues
+                { field, type, value }
             );
             response.send(patchedEntity);
         } catch (error) {

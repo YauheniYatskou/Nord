@@ -2,8 +2,8 @@ import { Metadata } from './metadata.js';
 import { generateUuid } from '../core/functions/generate-uuid.js';
 
 export class Entity {
-    constructor({ id = generateUuid(), name, type, metadata = [] }) {
-        this.id = id;
+    constructor({ uuid = generateUuid(), name, type, metadata = [] }) {
+        this.uuid = uuid;
         this.validateRequiredFields(name, type, metadata);
         this.name = name;
         this.type = type;

@@ -16,7 +16,7 @@ services:
         protocol: tcp
         mode: host
     networks:
-      - MONGO
+      - entity_network
   mongo:
     image: mongo:${MONGO_IMAGE_TAG}
     container_name: ${MONGO_CONTAINER_NAME}
@@ -28,14 +28,15 @@ services:
     ports:
       - ${MONGO_PORT}:27017
     networks:
-      - MONGO
+      - entity_network
     volumes:
       - type: volume
-        source: MONGO_DATA
+        source: entity_mongo_data
         target: /data/db
       - type: volume
-        source: MONGO_CONFIG
+        source: entity_mongo_config
         target: /data/configdb
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
   mongo-express:
     image: mongo-express:${MONGOEXPRESS_CONTAINER_TAG}
     container_name: ${MONGOEXPRESS_CONTAINER_NAME}
@@ -47,16 +48,16 @@ services:
     ports:
       - ${MONGOEXPRESS_PORT}:8081
     networks:
-      - MONGO
+      - entity_network
     depends_on:
       - ${MONGO_CONTAINER_NAME}
 
 networks:
-  MONGO:
-    name: MONGO
+  entity_network:
+    name: entity_network
 
 volumes:
-  MONGO_DATA:
-    name: MONGO_DATA
-  MONGO_CONFIG:
-    name: MONGO_CONFIG
+  entity_mongo_data:
+    name: entity_mongo_data
+  entity_mongo_config:
+    name: entity_mongo_config

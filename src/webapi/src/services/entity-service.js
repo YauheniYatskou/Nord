@@ -15,13 +15,13 @@ export class EntityService {
     }
 
     async deleteEntity(entityId) {
-        const entity = data.find((e) => e.id === entityId);
-        data = _.remove(data, (entity) => entity.id === entityId);
+        const entity = data.find((entity) => entity.uuid === entityId);
+        data = _.remove(data, (entity) => entity.uuid === entityId);
         return entity;
     }
 
     async patchEntity(entityId, fieldValues) {
-        let entity = data.find((e) => e.id === entityId);
+        let entity = data.find((entity) => entity.uuid === entityId);
         const fields = _.remove(
             ['name', 'type', 'metadata'],
             (field) => fieldValues[field] !== undefined

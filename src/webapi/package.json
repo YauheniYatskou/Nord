@@ -8,7 +8,7 @@
         "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
     },
     "scripts": {
-        "start": "cross-env PORT=3000 NODE_ENV=development VERSION=1.0 nodemon --inspect=0.0.0.0 ./src/app.js",
+        "start": "nodemon -r dotenv/config --inspect=0.0.0.0 ./src/app.js dotenv_config_path=.local.env",
         "format": "prettier --write .",
         "lint": "eslint ."
     },
@@ -18,6 +18,7 @@
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "lodash": "^4.17.21",
+        "mongoose": "^6.1.3",
         "morgan": "^1.10.0",
         "winston": "^3.3.3"
     },
@@ -25,6 +26,7 @@
         "@babel/core": "^7.16.5",
         "@babel/eslint-parser": "^7.16.5",
         "cross-env": "^7.0.3",
+        "dotenv": "^10.0.0",
         "eslint": "^8.4.1",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.3",

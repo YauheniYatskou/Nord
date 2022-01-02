@@ -3,8 +3,8 @@ import compression from 'compression';
 import morgan from 'morgan';
 import { Environments, StatusCodes } from '../constants/index.js';
 import { logger } from '../logging/logger.js';
-import { configurationFieldNames } from './configuration-field-names.js';
-import { getConfigurationValue } from './get-configuration-value.js';
+import { configurationFieldNames } from '../configuration/configuration-field-names.js';
+import { getConfigurationValue } from '../configuration/get-configuration-value.js';
 import { addEntityRoutes } from '../../routes/index.js';
 
 const expressInstance = express();

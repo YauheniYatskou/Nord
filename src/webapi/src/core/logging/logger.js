@@ -1,6 +1,5 @@
 import winston from 'winston';
-import { getConfigurationValue } from '../configuration/get-configuration-value.js';
-import { configurationFieldNames } from '../configuration/configuration-field-names.js';
+import { getConfigurationValue, configurationFieldNames } from '../configuration/index.js';
 
 const { createLogger, transports } = winston;
 const { json, combine, timestamp, errors, prettyPrint } = winston.format;
